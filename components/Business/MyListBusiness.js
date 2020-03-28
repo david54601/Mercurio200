@@ -88,11 +88,12 @@ function FooterList(props){
         return(
             
          <View style={styles.notFoundBusiness}>
-                <Text> No quedan mas negocios por mostrar </Text>
+                <Text> No Tienes mas negocios por mostrar </Text>
         </View>
  
         )
 
+       
     }
 
 }

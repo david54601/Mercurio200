@@ -117,7 +117,8 @@ function AddBusinessButton(props){
   const{navigation,setIsReloadBusiness} =props;
   
   return(
-    <ActionButton
+    <ActionButton 
+    
     buttonColor="#8f2764"
     onPress={() => 
       navigation.navigate("AddBusiness",{setIsReloadBusiness})}

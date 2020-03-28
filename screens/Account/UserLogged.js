@@ -7,12 +7,15 @@ import Toast from "react-native-easy-toast";
 import Loading from "../../components/Loading";
 import AccountOptions from "../Account/AccountOptions";
 
-export default function UserLogged() {
+
+export default function UserLogged(props) {
     const[userInfo, setUserInfo]=useState({});
     const[reloadData, setReloadData]=useState(false);
     const[isLoading, setIsLoading]=useState(false);
     const[textLoading, setTextLoading]=useState("");
     const toastRef=useRef();
+    const {navigation}=props;
+
     
     useEffect(()=>{
 
@@ -37,6 +40,23 @@ export default function UserLogged() {
               setReloadData={setReloadData}
               toastRef={toastRef}
               />
+              <View style={styles.containerFollowBusiness}> 
+
+              <Button 
+            title="Tiendas"
+            buttonStyle={styles.btnBusinessFollow}
+            titleStyle={styles.btnCLoseSessionText}
+            onPress={()=>firebase.auth().signOut()}
+            />
+              <Button 
+            title="Seguidos"
+            buttonStyle={styles.btnBusinessFollow}
+            titleStyle={styles.btnCLoseSessionText}
+            onPress={()=>navigation.navigate("Follow")}
+            />
+
+              </View>
+
             <Button 
             title="Cerrar sesión"
             buttonStyle={styles.btnCLoseSession}
@@ -53,6 +73,37 @@ export default function UserLogged() {
 }
  
 const styles=StyleSheet.create({
+    
+
+    
+
+    btnBusinessFollow:{
+        width:"90%",
+        marginTop:15,
+        backgroundColor:"#fff",
+        paddingBottom:10,
+        
+        
+        
+        
+    },
+    
+    containerFollowBusiness:{
+        flexDirection:"row",
+        width:"100%"
+        
+      
+
+    },
+
+    btnBusiness:{
+        width:"90%",
+        marginTop:15,
+        backgroundColor:"#fff",
+        paddingBottom:10,
+            
+    },
+
     viewUserInfo:{
         minHeight:"100%",
         backgroundColor:"#f2f2f2"

@@ -37,7 +37,7 @@ import Loading from "../../components/Loading";
                 .auth()
                 .signInWithEmailAndPassword(emailSinEspacio,password)
                 .then(()=>{
-                    navigation.navigate("MyAccount");
+                    navigation.navigate("MyAccount",navigation={navigation});
                     console.log("Login Correcto");
                 })
                 .catch(()=>{

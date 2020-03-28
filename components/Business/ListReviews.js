@@ -99,22 +99,25 @@ user? setUserLogged(true):setUserLogged(false);
 }
 
 function Review (props){
-    console.log(props);
+  console.log(props);
+   
     const {review,rating,createAt,avatarUser}= props.review.item;
     const createDateReview = new Date(createAt.seconds * 1000);
 
     return(
-        <View style={styles.viewReview}>
-            <View style={styles.viewImageAvatar}>
-            <Avatar
-            size="large"
-            rounded
-            containerStyle={styles.imageAvatarUser}
-            source={{
-                url:avatarUser?avatarUser
-                :"https://api.adorable.io/avatars/285/abott@adorable.png"
-            }}/>
-            </View>
+      <View style={styles.viewReview}>
+      <View style={styles.viewImageAvatar}>
+        <Avatar
+          size="large"
+          rounded
+          containerStyle={styles.imageAvatarUser}
+          source={{
+            url: avatarUser
+              ? avatarUser
+              : "https://api.adorable.io/avatars/285/abott@adorable.png"
+          }}
+        />
+      </View>
             <View style={styles.viewInfo}>
         <Text style={styles.reviewText}>{review}</Text>
         <Rating imageSize={15} startingValue={rating} readonly />

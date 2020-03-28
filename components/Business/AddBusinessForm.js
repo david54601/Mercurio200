@@ -32,16 +32,15 @@ export default function AddBusinessForm(props){
 
     const addBusiness =()=>{
 
-    if(!businessName || !businessAddress || !businessPhone||!businessDescription||!businessPhone ){
+    if(!businessName || !businessAddress || !businessPhone||!businessDescription ){
         toastRef.current.show("Todos los campos del formulario son obligatorios",3000);
-    } //else if(businessPhone<7 || businessPhone>14){
-       // toastRef.current.show("Los datos ingresados en el campo telefono no son correctos. ",3000);
+    }     
+    else if (imagesSelected.length===0){
+        toastRef.current.show("El negocio tiene que contar por lo menos con una foto",3000);
+    }else if(!locationBusiness){
 
-  //  }
-    
-    //else if (imagesSelected.length===0){
-       // toastRef.current.show("El negocio tiene que contar por lo menos con una foto",3000);
-    //}
+        toastRef.current.show("Tienes que Geolocalizar en el mapa ",3000);
+    }
     else{
 
         setIsLoading(true);

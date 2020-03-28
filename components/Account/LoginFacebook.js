@@ -30,7 +30,7 @@ export default function LoginFacebook(props){
             .signInWithCredential(credentials)
             .then(()=>{
                 
-                navigation.navigate("myAccount");
+                navigation.navigate("myAccount",navigation={navigation});
                 
             })
             .catch(()=>{

@@ -7,7 +7,11 @@ import UserLogged from "./UserLogged";
 
 
 
-export default function MyAccount() {
+export default function MyAccount(props) {
+    const {navigation}=props;
+     
+    
+    console.log(props);
    
     const[login, setLogin]=useState(null);
     useEffect(()=>{
@@ -26,5 +30,9 @@ export default function MyAccount() {
        
     }
     
-    return login ? <UserLogged/>: <UserGuest/>;
+    return login ? 
+    <UserLogged
+    navigation={navigation}
+    />:
+     <UserGuest/>;
 }

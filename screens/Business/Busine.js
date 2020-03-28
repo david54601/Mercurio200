@@ -4,20 +4,30 @@ import {Rating,ListItem,Icon} from "react-native-elements"
 import Carousel from "../../components/Carousel";
 import ListReviews from "../../components/Business/ListReviews";
 import Map from "../../components/Map";
-import *as firebase from "firebase";
 import ActionButton from "react-native-action-button";
+import Toast from "react-native-easy-toast";
+
+import {firebaseApp} from "../../utils/FireBase";
+import firebase from "firebase/app";
+import "firebase/firestore";
+const db =firebase.firestore(firebaseApp);
 
 const screenWidth=Dimensions.get("window").width;
 
 export default function Busine(props){
 
     const{navigation}=props;
+    const [user,setUser]=useState(null);
     const {business}=navigation.state.params.business.item;
     const [imagesBusiness, setImagesBusiness] = useState([]);
     const [rating, setRating] = useState(business.rating);
     const [isFollow, setIsFollow] = useState(false);
     const [userLogged, setUserLogged] = useState(false);
     const toastRef = useRef();
+
+    firebase.auth().onAuthStateChanged(user=>{
+      user? setUserLogged(true):setUserLogged(false);
+      })
     
   
 
@@ -40,15 +50,58 @@ export default function Busine(props){
       }, []);
 
 
+      useEffect(()=>{
+
+        if(userLogged){
+
+
+          db.collection("follow")
+        .where("idBusiness","==", business.id)
+        .where("idUser", "==", firebase.auth().currentUser.uid)
+        .get()
+        .then(()=>{
+          if(Response.docs.length===1){
+            
+            setIsFollow(true);
+
+          }
+        })
+        }
+      },[userLogged]);
+
       const addFollow=()=>{
-        console.log("negocio seguido");
+        
+      const payload={
+        idUser:firebase.auth().currentUser.uid,
+        idBusiness:business.id
+      }
+      db.collection("follow").add(payload).then(()=>{
         setIsFollow(true);
+        toastRef.current.show("Empezo a seguir el negocio",3000 );
+      }).catch(()=>{
+        toastRef.current.show("Erro al añadir el negocio a la lista de seguidos",3000)
+      });
         
       }
-
       const removeFollow=()=>{
-        console.log("dejaste  de seguir un negocio");
-        setIsFollow(false);
+        db.collection("follow")
+        .where("idBusiness","==", business.id)
+        .where("idUser", "==", firebase.auth().currentUser.uid)
+        .get()
+        .then(response=>{
+          response.forEach(doc =>{
+            const idFollow=doc.id;
+            db.collection("follow")
+            .doc(idFollow)
+            .delete()
+            .then(()=>{
+              setIsFollow(false);
+              toastRef.current.show("Dejaste de segui el negocio ", 3000);
+            }).catch(()=>{
+              toastRef.current.show(" Se presento un error al momento de dejar de seguir el negocio",3000);
+            })
+          })
+        })
       }
 
     return(
@@ -70,6 +123,12 @@ export default function Busine(props){
             width={screenWidth}
             height={200}
            />
+            {!user&& (
+     
+        <AddProductButton navigation={navigation}
+            />
+             )}
+
            <TitleBusiness
            name={business.name}
            description={business.description}
@@ -83,8 +142,6 @@ export default function Busine(props){
           address={business.address}
           
           />
-           <AddProductButton navigation={navigation}
-            style={styles.btnAddProduct}/>
 
         <ListReviews
         navigation={navigation}
@@ -92,8 +149,8 @@ export default function Busine(props){
         setRating={setRating}
         
       />
+              <Toast ref={toastRef} position="center" opacity={0.5}/>
 
-           
         </ScrollView>
        
     )
@@ -158,7 +215,7 @@ return(
           containerStyle={styles.containerListItem}
         />
       ))}
-      
+     
   </View>
  
 )}
@@ -169,7 +226,7 @@ function AddProductButton(props){
     const{navigation} =props;
     
     return(
-      <ActionButton
+      <ActionButton style={{ flex:1}}
       buttonColor="#8f2764"
       onPress={() => navigation.navigate("AddProduct")}
       />
