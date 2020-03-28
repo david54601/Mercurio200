@@ -14,17 +14,11 @@ import Loading from "../../components/Loading";
     const[email, setEmail]=useState("");
     const [password, setPassword]=useState("");
     const [isVisibleLoading, setIsVisibleLoading]=useState(false);
- 
+    
 
 
     const Login= async (props)=>{
         setIsVisibleLoading(true);
-
-        console.log(email);
-        console.log(email.trim());
-
-        const emailSinEspacio=email.trim();
-        
 
             if(!email || !password){
             toastRef.current.show("Los campos no pueden ir vacios ");
@@ -35,9 +29,10 @@ import Loading from "../../components/Loading";
             } else{
                 await firebase
                 .auth()
-                .signInWithEmailAndPassword(emailSinEspacio,password)
+                .signInWithEmailAndPassword(email,password)
                 .then(()=>{
-                    navigation.navigate("MyAccount",navigation={navigation});
+
+                    navigation.navigate("MyAccount");                    
                     console.log("Login Correcto");
                 })
                 .catch(()=>{
@@ -55,7 +50,7 @@ import Loading from "../../components/Loading";
             <Input
         placeholder="Correo electronico"
         containerStyle={styles.inputForm}
-        onChange={event=>setEmail(event.nativeEvent.text)}
+        onChange={event=>setEmail(event.nativeEvent.text.trim())}
         rightIcon={
             <Icon
                 type="material-community"

@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add reac-native-keyboard-aware-scroll-view
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-screens @2.0.0-alpha.12
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files (x86)\Brackets\command;C:\Users\KiN_n\AppData\Local\Microsoft\WindowsApps;C:\Users\KiN_n\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\KiN_n\AppData\Local\Yarn\bin;C:\Users\KiN_n\AppData\Roaming\npm
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files (x86)\Brackets\command;C:\Users\KiN_n\AppData\Local\Microsoft\WindowsApps;C:\Users\KiN_n\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\KiN_n\AppData\Local\Yarn\bin;C:\Users\KiN_n\AppData\Roaming\npm;C:\Users\KiN_n\AppData\Local\GitHubDesktop\bin
 
 Yarn version: 
   1.17.3
@@ -14,8 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/reac-native-keyboard-aware-scroll-view: Not found
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65939:18)
+  Error: https://registry.yarnpkg.com/@2.0.0-alpha.12: Request "https://registry.yarnpkg.com/@2.0.0-alpha.12" returned a 405
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65948:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140464:22)
       at Request.emit (events.js:198:13)
       at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141436:10)
@@ -37,21 +37,32 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
-      "@react-native-community/masked-view": "^0.1.6",
+      "@react-native-community/masked-view": "~0.1.5",
       "expo": "^36.0.2",
+      "expo-facebook": "^8.0.0",
+      "expo-image-picker": "~8.0.1",
+      "expo-location": "~8.0.0",
+      "expo-permissions": "~8.0.0",
       "firebase": "^7.8.0",
       "react": "^16.12.0",
       "react-dom": "16.8.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+      "react-native-action-button": "^2.8.5",
+      "react-native-banner-carousel": "^1.0.3",
+      "react-native-easy-toast": "^1.2.0",
       "react-native-elements": "^1.2.7",
-      "react-native-gesture-handler": "1.3.0",
-      "react-native-reanimated": "^1.7.0",
-      "react-native-safe-area-context": "^0.6.4",
+      "react-native-gesture-handler": "~1.5.0",
+      "react-native-keyboard-aware-scroll-view": "^0.9.1",
+      "react-native-maps": "0.26.1",
+      "react-native-open-maps": "^0.3.5",
+      "react-native-reanimated": "~1.4.0",
+      "react-native-safe-area-context": "~0.6.0",
       "react-native-screens": "^2.0.0-alpha.34",
       "react-native-web": "~0.11.7",
       "react-navigation": "^4.1.0",
       "react-navigation-stack": "^2.1.0",
-      "react-navigation-tabs": "^2.7.0"
+      "react-navigation-tabs": "^2.7.0",
+      "uuid": "~3.3.3"
     },
     "devDependencies": {
       "@babel/core": "^7.0.0",
@@ -952,6 +963,13 @@ Lockfile:
       exec-sh "^0.3.2"
       minimist "^1.2.0"
   
+  "@egjs/hammerjs@^2.0.17":
+    version "2.0.17"
+    resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
+    integrity sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==
+    dependencies:
+      "@types/hammerjs" "^2.0.36"
+  
   "@expo/vector-icons@^10.0.2":
     version "10.0.6"
     resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.0.6.tgz#5718953ff0b97827d11dae5787976fa8ce5caaed"
@@ -1419,7 +1437,7 @@ Lockfile:
       wcwidth "^1.0.1"
       ws "^1.1.0"
   
-  "@react-native-community/masked-view@^0.1.6":
+  "@react-native-community/masked-view@~0.1.5":
     version "0.1.6"
     resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.6.tgz#c7f2ac187c1f25aa8c30d11baa8f4398eca3bb84"
     integrity sha512-PpMoeXwPUoldCRKDuSi+zK5rT+sJTW6ri6RdGPkSKRzU77Q1d9IaR0O5IKvBj0XSdL3p+dcOa05gk35aGDffBQ==
@@ -1454,6 +1472,11 @@ Lockfile:
     version "2.0.32"
     resolved "https://registry.yarnpkg.com/@types/fbemitter/-/fbemitter-2.0.32.tgz#8ed204da0f54e9c8eaec31b1eec91e25132d082c"
     integrity sha1-jtIE2g9U6cjq7DGx7skeJRMtCCw=
+  
+  "@types/hammerjs@^2.0.36":
+    version "2.0.36"
+    resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
+    integrity sha512-7TUK/k2/QGpEAv/BCwSHlYu3NXZhQ9ZwBYpzr9tjlPIL2C5BeGhH3DmVavRx3ZNyELX5TLC91JTz/cen6AAtIQ==
   
   "@types/invariant@^2.2.29":
     version "2.2.31"
@@ -2677,6 +2700,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/expo-error-recovery/-/expo-error-recovery-1.0.0.tgz#2ca9d59fcd16c5c881af877993731056f2d46afe"
     integrity sha512-xnxciNEpGmwxx8BAE2A9fd9HxtzWtz8p9mikKU+EfWgOXaYD3FJwgbFoVLD2pm4QUarxwOcic76rcwg+0cNnGg==
   
+  expo-facebook@^8.0.0:
+    version "8.0.0"
+    resolved "https://registry.yarnpkg.com/expo-facebook/-/expo-facebook-8.0.0.tgz#d337a56459a3833488a879b925349b30c06a0afd"
+    integrity sha512-fF+lwFLWkB/mrr/xu4aIZ3HhpsITUTC1Dut4fD7ZzBPpQ3x2s1KpdNOOrb6FQFlE0thFlLAASRe0HDhFD7EN4w==
+  
   expo-file-system@~8.0.0:
     version "8.0.0"
     resolved "https://registry.yarnpkg.com/expo-file-system/-/expo-file-system-8.0.0.tgz#60b90c8a375308dc85922592a77531a8e0cde6f7"
@@ -2690,6 +2718,13 @@ Lockfile:
     integrity sha512-1hrlvxv8MpE1761v2mDjZRwhhM4hkfDr/MQlkWD2+g17N+UjU3WQct4kc+VuZW30pP+YowwrmG3O6JVoIOhWGA==
     dependencies:
       fontfaceobserver "^2.1.0"
+  
+  expo-image-picker@~8.0.1:
+    version "8.0.2"
+    resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.0.2.tgz#14139f1d73793ae7fba6fe3cf34e1dc91baf402a"
+    integrity sha512-oa0/JoKIv5mxyadpVqiQ+BXak2s7QS3+Rurj1j/gL5GGFmb3cDJWbGHxvtrEXEccv8812JAp5BfBRqfzlW1gMQ==
+    dependencies:
+      expo-permissions "*"
   
   expo-keep-awake@~8.0.0:
     version "8.0.0"
@@ -2708,7 +2743,7 @@ Lockfile:
     dependencies:
       invariant "^2.2.4"
   
-  expo-permissions@~8.0.0:
+  expo-permissions@*, expo-permissions@~8.0.0:
     version "8.0.0"
     resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-8.0.0.tgz#5a45e8451dd7ff37c9e6ce5e2447818372547813"
     integrity sha512-GHTRmwh1rd1b0FcibluPFu93NNQyl9b1anBBDVPmomoo9Prz7kDcO5p2hFqM99r896yvAUSe0fPloPKUq4g/1A==
@@ -3139,6 +3174,12 @@ Lockfile:
       nan "^2.13.2"
       node-pre-gyp "^0.14.0"
       protobufjs "^5.0.3"
+  
+  "hammerjs@https://github.com/naver/hammer.js.git":
+    version "2.0.17-snapshot"
+    resolved "https://github.com/naver/hammer.js.git#54bc698b25edd6e1b76ca975ebaced5ce0467d51"
+    dependencies:
+      "@types/hammerjs" "^2.0.36"
   
   has-flag@^3.0.0:
     version "3.0.0"
@@ -4875,6 +4916,15 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
     integrity sha512-Cxm7/SS/y/Z3MHWSxXb8lIFqgqBowP5JMlTUFyJN88y0SGQhVmZnqFK/PeuMX9LzUyWsqqhNxIyg0jlzq946yA==
   
+  query-string@^6.1.0:
+    version "6.11.1"
+    resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.11.1.tgz#ab021f275d463ce1b61e88f0ce6988b3e8fe7c2c"
+    integrity sha512-1ZvJOUl8ifkkBxu2ByVM/8GijMIPx+cef7u3yroO3Ogm4DOdZcF5dcrWTIlSHe3Pg/mtlt6/eFjObDfJureZZA==
+    dependencies:
+      decode-uri-component "^0.2.0"
+      split-on-first "^1.0.0"
+      strict-uri-encode "^2.0.0"
+  
   query-string@^6.4.2:
     version "6.10.1"
     resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.10.1.tgz#30b3505f6fca741d5ae541964d1b3ae9dc2a0de8"
@@ -4932,6 +4982,25 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
     integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
   
+  react-native-action-button@^2.8.5:
+    version "2.8.5"
+    resolved "https://registry.yarnpkg.com/react-native-action-button/-/react-native-action-button-2.8.5.tgz#4152a50323a8a6b3468e6f161f9a9071f2f0739a"
+    integrity sha512-BvGZpzuGeuFR2Y6j93+vKiSqDhsF87VHvNXFs/qEYKfzT4b1ASAT/GQbgS6gNt4jRJCUnJWYrIwlBzRjesZQmQ==
+    dependencies:
+      prop-types "^15.5.10"
+  
+  react-native-banner-carousel@^1.0.3:
+    version "1.0.3"
+    resolved "https://registry.yarnpkg.com/react-native-banner-carousel/-/react-native-banner-carousel-1.0.3.tgz#83d760233cd7496b595a3c1e51399ffcb16edcb2"
+    integrity sha1-g9dgIzzXSWtZWjweUTmf/LFu3LI=
+  
+  react-native-easy-toast@^1.2.0:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/react-native-easy-toast/-/react-native-easy-toast-1.2.0.tgz#0f70bcb99e3306cda4800c244bfb4a67d42276ed"
+    integrity sha512-UtpxnRn1ME+035Uey4VR+9K0P4aVoTcWNOx5QkioWBe3LBKMPb/kZjrQ1LtvWzOyeGP4TeTUTtMX3IOPWv5MtA==
+    dependencies:
+      prop-types "^15.5.10"
+  
   react-native-elements@^1.2.7:
     version "1.2.7"
     resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.2.7.tgz#1eca2db715c41722aeb67aea62bd2a4621adb134"
@@ -4946,19 +5015,41 @@ Lockfile:
       react-native-ratings "^6.3.0"
       react-native-status-bar-height "^2.2.0"
   
-  react-native-gesture-handler@1.3.0:
-    version "1.3.0"
-    resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.3.0.tgz#d0386f565928ccc1849537f03f2e37fd5f6ad43f"
-    integrity sha512-ASRFIXBuKRvqlmwkWJhV8yP2dTpvcqVrLNpd7FKVBFHYWr6SAxjGyO9Ik8w1lAxDhMlRP2IcJ9p9eq5X2WWeLQ==
+  react-native-gesture-handler@~1.5.0:
+    version "1.5.6"
+    resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.5.6.tgz#5d90145f624e3707db2930f43ab41579683e2375"
+    integrity sha512-z2jLUkRiRc0PBAC9UcXYkqy3VUzBG0cYQAGMsDHsd90JgrzudHAFRJV9fvFm18wNauFTNnJievjZ0C3rI2ydhw==
     dependencies:
+      "@egjs/hammerjs" "^2.0.17"
+      hammerjs "https://github.com/naver/hammer.js.git"
       hoist-non-react-statics "^2.3.1"
-      invariant "^2.2.2"
-      prop-types "^15.5.10"
+      invariant "^2.2.4"
+      prop-types "^15.7.2"
   
-  react-native-iphone-x-helper@^1.2.1:
+  react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.2.1:
     version "1.2.1"
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
     integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
+  
+  react-native-keyboard-aware-scroll-view@^0.9.1:
+    version "0.9.1"
+    resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.9.1.tgz#9e54b565a5f19b30bed12221d48921781f7630af"
+    integrity sha512-tBZ8rmjELN0F6t5UBp5CW3NYmZXgVnJSzVCssv/OqG2t6kiB+OUTqxNvUP24K+HARX4H+XaW0aEJSFQkQCv6KA==
+    dependencies:
+      prop-types "^15.6.2"
+      react-native-iphone-x-helper "^1.0.3"
+  
+  react-native-maps@0.26.1:
+    version "0.26.1"
+    resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.26.1.tgz#6ec316259b38d259c8974448d894bd7a23101da4"
+    integrity sha512-p4VTB8YB5ZmOmDRCUpoHZkm05amZwhIo04AJMBbB9+JAR2PNNfpo0vceoWX0Mag4wnePkdzPomeWMplr/wimTg==
+  
+  react-native-open-maps@^0.3.5:
+    version "0.3.5"
+    resolved "https://registry.yarnpkg.com/react-native-open-maps/-/react-native-open-maps-0.3.5.tgz#719a002db50b2f5fb4e4d043c174c0827b87f2ee"
+    integrity sha512-JPRZVj8gYJDHqJZV90BQIemIvTmoxCE8T3CVD3w25ZNXjf822xAespJ+JRRCB8gZ58TnmcrzcRG8cst/tJeIhQ==
+    dependencies:
+      query-string "^6.1.0"
   
   react-native-ratings@^6.3.0:
     version "6.5.0"
@@ -4968,12 +5059,12 @@ Lockfile:
       lodash "^4.17.4"
       prop-types "^15.5.10"
   
-  react-native-reanimated@^1.7.0:
-    version "1.7.0"
-    resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.7.0.tgz#896db2576552ac59d288a1f6c7f00afc171f240c"
-    integrity sha512-FQWSqP605eQVJumuK2HpR+7heF0ZI+qfy4jNguv3Xv8nPFHeIgZaRTXHCEQL2AcuSIj50zy8jGJf5l134QMQWQ==
+  react-native-reanimated@~1.4.0:
+    version "1.4.0"
+    resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
+    integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
   
-  react-native-safe-area-context@^0.6.4:
+  react-native-safe-area-context@~0.6.0:
     version "0.6.4"
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.6.4.tgz#624bd50cebc9f47853f179373501511931d2a0c3"
     integrity sha512-xj8Mv8ZHfc8RquBgVYt+4+nOJaexTblLsQJpyx4Dh4qFUG+3QtbNlfOF7/ITj/qY5LNdlfafKoDsVgFz0WIU1w==
@@ -6003,6 +6094,11 @@ Lockfile:
     version "3.4.0"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
     integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+  
+  uuid@~3.3.3:
+    version "3.3.3"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
+    integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
   
   validate-npm-package-license@^3.0.1:
     version "3.0.4"

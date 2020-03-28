@@ -10,9 +10,7 @@ import UserLogged from "./UserLogged";
 export default function MyAccount(props) {
     const {navigation}=props;
      
-    
-    console.log(props);
-   
+
     const[login, setLogin]=useState(null);
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user=>{

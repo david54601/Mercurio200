@@ -15,6 +15,7 @@ export default function UserLogged(props) {
     const[textLoading, setTextLoading]=useState("");
     const toastRef=useRef();
     const {navigation}=props;
+    
 
     
     useEffect(()=>{

@@ -99,7 +99,6 @@ user? setUserLogged(true):setUserLogged(false);
 }
 
 function Review (props){
-  console.log(props);
    
     const {review,rating,createAt,avatarUser}= props.review.item;
     const createDateReview = new Date(createAt.seconds * 1000);
